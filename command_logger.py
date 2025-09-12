@@ -28,6 +28,7 @@ try:
     with open(f'/usr/local/src/yamahira/lastcommand_{PID}', 'r', encoding='utf-8') as file:
         lines = file.readlines()
         last_line = lines[-1].strip()
+        existence_uuid = 0
         if last_line:
             parts = last_line.split('@w@a@w@')
             log_dict = {}
@@ -36,10 +37,10 @@ try:
                 if len(key_value) == 2:
                     key, value = key_value[0], key_value[1]
                     log_dict[key] = value
-                    print(log_dict)
+                   # print(log_dict)
         else:
             cmd = []
-        
+
         try:
             # curlコマンドの-dで送信するJSONデータ
             # 更新後のデータ
@@ -82,6 +83,7 @@ try:
                 '-d', data_json,
                 URL
             ]
+
         # --- コマンドの実行 ---
         try:
             result = subprocess.run(cmd, text=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)

@@ -88,9 +88,11 @@ ssh -i "$SSH_KEY_PATH" "$SSH_USER@$SSH_HOST" <<EOF
   # curlで直接 .bashrc ファイルを上書きして更新
   curl -fsSL -o ~/.bashrc "$BASHRC_URL"
 
-    echo "  -> 🌐 Installing ttyd..."
-  sudo apt-get update
-  sudo apt-get install ttyd -y
+  echo "  -> 🌐 Installing ttyd from GitHub..."
+  # ttydの実行ファイルをGitHubから直接ダウンロードして/usr/local/binに配置
+  sudo curl -fsSL -o /usr/local/bin/ttyd https://github.com/tsl0922/ttyd/releases/download/1.7.7/ttyd.x86_64
+  # ダウンロードしたファイルに実行権限を付与
+  sudo chmod +x /usr/local/bin/ttyd
 
   echo "  -> 📝 Downloading ttyd.service file from GitHub..."
   sudo curl -fsSL -o /etc/systemd/system/ttyd.service "$TTYD_SERVICE_URL"
