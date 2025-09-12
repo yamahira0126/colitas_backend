@@ -15,7 +15,6 @@ set -e
 # SSH接続情報
 SSH_KEY_PATH="$HOME/.ssh/labsuser.pem"
 SSH_USER="admin"
-SSH_HOST="1.1.1.1"
 
 # ダウンロードするファイルのURL
 PYTHON_SCRIPT_URL="https://raw.githubusercontent.com/yamahira0126/colitas_backend/main/command_logger.py"
@@ -32,6 +31,7 @@ if [ -z "$1" ]; then
 fi
 
 GAKUSEKI_ID="$1"
+SSH_HOST="$2"
 
 echo "🚀 Starting remote server setup for Gakuseki ID: $GAKUSEKI_ID"
 

@@ -1,1 +1,1 @@
-curl -sSL https://raw.githubusercontent.com/yamahira0126/colitas_backend/main/setup.sh | bash -s "AB123456"
+curl -sSL https://raw.githubusercontent.com/yamahira0126/colitas_backend/main/setup.sh | bash -s "gakuseki" "ip"
