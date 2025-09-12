@@ -3,9 +3,9 @@ import sys
 import json
 import subprocess
 
-URL = ""
-API_KEY = ""
-AUTH_TOKEN = ""
+URL = "http://100.80.48.95:8000/rest/v1/log_command"
+API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ewogICJyb2xlIjogImFub24iLAogICJpc3MiOiAic3VwYWJhc2UiLAogICJpYXQiOiAxNzQxOTY0NDAwLAogICJleHAiOiAxODk5NzMwODAwCn0.U2tdu3I34vyKVRzYI4gzto0LYFcullB1pbd5Vnudo9c"
+AUTH_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ewogICJyb2xlIjogImF1dGhlbnRpY2F0ZWQiLAogICJpc3MiOiAic3VwYWJhc2UiLAogICJpYXQiOiAxNzQyMzEwMDAwLAogICJleHAiOiAxOTAwMDc2NDAwCn0.yyx9-guJY-WtmcKcOocS8o3rxAm_lw1D8AiL2wvZVqY"
 
 
 PID = sys.argv[1]
