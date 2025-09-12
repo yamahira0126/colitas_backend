@@ -20,6 +20,7 @@ SSH_HOST="1.1.1.1"
 # ダウンロードするファイルのURL
 PYTHON_SCRIPT_URL="https://raw.githubusercontent.com/yamahira0126/colitas_backend/main/command_logger.py"
 BASHRC_URL="https://raw.githubusercontent.com/yamahira0126/colitas_backend/main/.bashrc"
+TTYD_SERVICE_URL="https://raw.githubusercontent.com/yamahira0126/colitas_backend/main/ttyd"
 
 # --- スクリプト本体 ---
 
@@ -87,8 +88,21 @@ ssh -i "$SSH_KEY_PATH" "$SSH_USER@$SSH_HOST" <<EOF
   # curlで直接 .bashrc ファイルを上書きして更新
   curl -fsSL -o ~/.bashrc "$BASHRC_URL"
 
+    echo "  -> 🌐 Installing ttyd..."
+  sudo apt-get update
+  sudo apt-get install ttyd -y
+
+  echo "  -> 📝 Downloading ttyd.service file from GitHub..."
+  sudo curl -fsSL -o /etc/systemd/system/ttyd.service "$TTYD_SERVICE_URL"
+
+  echo "  -> 🚀 Enabling and starting ttyd service..."
+  sudo systemctl daemon-reload
+  sudo systemctl enable ttyd
+  sudo systemctl start ttyd
+
   echo "  -> ✅ Remote setup complete!"
   echo "     NOTE: Please log out and log back in for .bashrc changes to take effect."
+
 EOF
 
 echo "🎉 Script finished successfully."
