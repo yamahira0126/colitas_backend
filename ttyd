@@ -3,7 +3,7 @@ Description=ttyd - terminal to http
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/ttyd -p 8080 --writable bash
+ExecStart=/usr/local/bin/ttyd -p 8080 -i 8080 --writable bash
 Restart=always
 User=admin          
 Group=admin          
