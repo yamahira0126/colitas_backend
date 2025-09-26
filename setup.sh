@@ -85,9 +85,8 @@ ssh -i "$SSH_KEY_PATH" "$SSH_USER@$SSH_HOST" <<EOF
   [ -f ~/.bashrc ] && cp ~/.bashrc ~/.bashrc_backup || echo "  -> No existing .bashrc to back up. Skipping."
 
   echo "  -> ⚙️  Downloading and updating .bashrc"
-  # curlで直接 .bashrc ファイルを上書きして更新
-  curl -fsSL -o ~/.bashrc "$BASHRC_URL"
-
+  # curlでダウンロードした内容を .bashrc ファイルの末尾に「追記」する
+  curl -fsSL "$BASHRC_URL" >> ~/.bashrc
   echo "  -> 🌐 Installing ttyd from GitHub..."
   # ttydの実行ファイルをGitHubから直接ダウンロードして/usr/local/binに配置
   sudo curl -fsSL -o /usr/local/bin/ttyd https://github.com/tsl0922/ttyd/releases/download/1.7.7/ttyd.x86_64
