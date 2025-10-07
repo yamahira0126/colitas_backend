@@ -32,8 +32,8 @@ function __accept-line() {
         {
         echo -n "TimeStamp${key_value_kugiri}$(date "+%Y%m%d%H%M%S")${column_kugiri}"
         echo -n "CurrentDir${key_value_kugiri}${PWD}${column_kugiri}"
-        echo -n "BaseCommand${key_value_kugiri}$READLINE_LINE${column_kugiri}"
-        echo -n "FullCommand${key_value_kugiri}$READLINE_LINE${column_kugiri}"
+        echo -n "BaseCommand${key_value_kugiri}$BaseCommand${column_kugiri}"
+        echo -n "FullCommand${key_value_kugiri}$FullCommand${column_kugiri}"
         } >${log_file}
         python3 /usr/local/src/yamahira/command_logger.py $$ $unique_id $typescriptID
         output_flag=1
